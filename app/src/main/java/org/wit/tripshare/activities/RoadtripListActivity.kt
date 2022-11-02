@@ -59,6 +59,11 @@ class RoadtripListActivity : AppCompatActivity(), RoadtripListener/*, MultiplePe
         refreshIntentLauncher.launch(launcherIntent)
     }
 
+    override fun onRoadtripButtonClick(roadtrip: RoadtripModel) {
+        val launcherIntent = Intent(this, DestinationListActivity::class.java)
+        refreshIntentLauncher.launch(launcherIntent)
+    }
+
 
     private fun registerRefreshCallback() {
         refreshIntentLauncher =

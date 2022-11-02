@@ -18,10 +18,10 @@
             android:name="com.google.android.geo.API_KEY"
             android:value="@string/google_maps_key" />
 
-<!--                <activity-->
-<!--                    android:name=".activities.MapActivity"-->
-<!--                    android:exported="true"-->
-<!--                    android:label="@string/title_activity_map" />-->
+                <activity
+                    android:name=".activities.MapActivity"
+                    android:exported="true"
+                    android:label="@string/title_activity_map" />
         <activity
             android:name=".activities.Splash"
             android:exported="true"

@@ -12,6 +12,7 @@ import org.wit.tripshare.models.RoadtripModel
 
 interface RoadtripListener {
     fun onRoadtripClick(roadtrip: RoadtripModel)
+    fun onRoadtripButtonClick(roadtrip: RoadtripModel)
 }
 
 class RoadtripAdapter constructor(
@@ -50,6 +51,9 @@ class RoadtripAdapter constructor(
 //                .override(200,200)
 //                .into(binding.imageIcon)
             binding.root.setOnClickListener { listener.onRoadtripClick(roadtrip) }
+            binding.roadtripOpenButton.setOnClickListener {
+                listener.onRoadtripButtonClick(roadtrip)
+            }
         }
     }
 }

@@ -26,7 +26,7 @@ class DestinationJSONStore(private val context: Context) : DestinationStore {
 
     init {
         if (exists(context, JSON_FILE)) {
-            deserialize()
+            deserializeDestination()
         }
     }
 
@@ -38,7 +38,7 @@ class DestinationJSONStore(private val context: Context) : DestinationStore {
     override fun create(destination: DestinationModel) {
         destination.id = generateRandomId()
         destinations.add(destination)
-        serialize()
+        serializeDestination()
     }
 
 
@@ -57,20 +57,20 @@ class DestinationJSONStore(private val context: Context) : DestinationStore {
             foundDestination.lng = destination.lng
             foundDestination.zoom = destination.zoom
         }
-        serialize()
+        serializeDestination()
     }
 
     override fun delete(destination: DestinationModel) {
         destinations.remove(destination)
-        serialize()
+        serializeDestination()
     }
 
-    private fun serialize() {
+    private fun serializeDestination() {
         val jsonString = gsonBuilder.toJson(destinations, listType)
         write(context, JSON_FILE, jsonString)
     }
 
-    private fun deserialize() {
+    private fun deserializeDestination() {
         val jsonString = read(context, JSON_FILE)
         destinations = gsonBuilder.fromJson(jsonString, listType)
     }
