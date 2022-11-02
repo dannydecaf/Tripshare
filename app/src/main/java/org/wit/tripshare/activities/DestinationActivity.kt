@@ -99,7 +99,7 @@ class DestinationActivity : AppCompatActivity() {
             destination.rating = binding.destinationRatingBarInput.rating
             if (destination.title.isEmpty()) {
                 Snackbar.make(it,R.string.enter_destination_title, Snackbar.LENGTH_LONG)
-                        .show()
+                    .show()
             } else {
                 if (edit) {
                     app.destinations.update(destination.copy())
@@ -140,9 +140,9 @@ class DestinationActivity : AppCompatActivity() {
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         when (item.itemId) {
-        R.id.item_delete -> {
-            app.destinations.delete(destination)
-            finish()
+            R.id.item_delete -> {
+                app.destinations.delete(destination)
+                finish()
             }
             R.id.item_cancel -> {
                 finish()
@@ -161,8 +161,8 @@ class DestinationActivity : AppCompatActivity() {
                             i("Got Result ${result.data!!.data}")
                             destination.image = result.data!!.data!!
                             Picasso.get()
-                                   .load(destination.image)
-                                   .into(binding.destinationImage)
+                                .load(destination.image)
+                                .into(binding.destinationImage)
                             binding.chooseDestinationImage.setText(R.string.change_destination_image)
                         } // end of if
                     }
